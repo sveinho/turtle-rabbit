@@ -1,3 +1,6 @@
+// Importer N3 direkte som en modul i nettleseren
+import N3 from 'https://esm.sh';
+
 // Konfigurasjon
 const TTL_FILE_PATH = 'data.ttl'; // Sørg for at filnavnet matcher din Turtle-fil
 
