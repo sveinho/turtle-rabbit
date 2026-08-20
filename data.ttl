@@ -1,0 +1,17 @@
+@prefix skos: <http://w3.org> .
+@prefix ex: <http://example.org> .
+
+ex:kunstigIntelligens a skos:Concept ;
+    skos:prefLabel "Kunstig intelligens"@no ;
+    skos:altLabel "KI"@no, "AI"@no, "Maskinintelligens"@no ;
+    skos:definition "Informasjonsteknologi som utfører oppgaver som vanligvis krever menneskelig intelligens."@no .
+
+ex:maskinlaering a skos:Concept ;
+    skos:prefLabel "Maskinlæring"@no ;
+    skos:altLabel "ML"@no ;
+    skos:definition "En gren innen kunstig intelligens der algoritmer lærer mønstre fra data."@no .
+
+ex:semantiskWeb a skos:Concept ;
+    skos:prefLabel "Semantisk web"@no ;
+    skos:altLabel "Lined data"@no, "Dataveven"@no ;
+    skos:definition "En utvidelse av internett som gjør data lesbare og forståelige for maskiner."@no .
