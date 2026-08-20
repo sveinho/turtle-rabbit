@@ -3,41 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modular Semantic DB</title>
-    <script src="https://unpkg.com/n3/browser/n3.min.js"></script>
+    <title>SKOS Katalog Søk</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+        input { width: 100%; padding: 12px; font-size: 16px; margin-bottom: 20px; box-sizing: border-box; }
+        .loading { color: #666; font-style: italic; }
+        .concept { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .prefLabel { font-size: 18px; font-weight: bold; margin: 0 0 5px 0; color: #0066cc; }
+        .altLabel { font-size: 14px; color: #666; margin: 0 0 5px 0; }
+        .definition { font-size: 14px; margin: 5px 0; }
+        .uri { font-size: 11px; color: #999; word-break: break-all; }
+    </style>
 </head>
-<body style="font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px;">
+<body>
 
-    <h1>Butikk-dashboard</h1>
+    <h1>SKOS Begrepskatalog</h1>
     
-    <h2>Kjøpshistorikk (Relasjoner på tvers av moduler):</h2>
-    <div id="purchase-history">Laster historikk...</div>
+    <input type="text" id="search-input" placeholder="Søk i katalogen etter foretrukket term, alt-term eller definisjon..." disabled>
+    
+    <div id="status" class="loading">Laster inn og parser Turtle-data...</div>
+    <div id="results"></div>
 
-    <h2>Alle tilgjengelige produkter:</h2>
-    <div id="product-list">Laster produkter...</div>
-
-    <script type="module">
-        import { Store } from 'https://unpkg.com';
-        import { loadProductModule, renderProducts } from './modules/products/products.js';
-        import { loadUserModule, renderPurchaseHistory } from './modules/users/users.js';
-
-        // 1. Opprett den sentrale graf-databasen
-        const globalStore = new Store();
-
-        async function initApp() {
-            // 2. Last inn data parallelt fra de flate Turtle-filene på GitHub Pages
-            await Promise.all([
-                loadProductModule(globalStore),
-                loadUserModule(globalStore)
-            ]);
-            
-            // 3. Render ut de to ulike visningene basert på felles data
-            renderPurchaseHistory(globalStore, 'purchase-history');
-            renderProducts(globalStore, 'product-list');
-        }
-
-        initApp();
-    </script>
+    <!-- Vi bruker N3.js for rask parsing av Turtle i nettleseren -->
+    <script src="https://unpkg.com"></script>
+    <script src="app.js"></script>
 </body>
 </html>
-
