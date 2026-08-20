@@ -1,1 +1,14 @@
+@base <./modules/products/products.ttl> .
+@prefix schema: <https://schema.org> .
+@prefix rdf: <http://w3.org> .
+
+# Vare 1
+<#product1> rdf:type schema:Product ;
+    schema:name "Trådløs Mus" ;
+    schema:price "29.99" .
+
+# Vare 2
+<#product2> rdf:type schema:Product ;
+    schema:name "Mekanisk Tastatur" ;
+    schema:price "89.99" .
 
