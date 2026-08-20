@@ -1,0 +1,16 @@
+@base <./modules/users/users.ttl> .
+@prefix schema: <https://schema.org> .
+@prefix rdf: <http://w3.org> .
+
+# Bruker 1
+<#user_ola> rdf:type schema:Person ;
+    schema:name "Ola Nordmann" ;
+    # Kobling på tvers av moduler: Ola har kjøpt Trådløs Mus
+    schema:purchase <../products/products.ttl#product1> .
+
+# Bruker 2
+<#user_kari> rdf:type schema:Person ;
+    schema:name "Kari Nordmann" ;
+    # Kari har kjøpt Mekanisk Tastatur
+    schema:purchase <../products/products.ttl#product2> .
+
